@@ -2,7 +2,7 @@
 This module contains the main FastAPI application.
 """
 
-# Import necessary libraries
+# Import necessary libraries 
 from uvicorn import Config, Server  # Uvicorn for running the FastAPI application
 from fastapi import FastAPI  # FastAPI for building the API
 from fastapi.middleware.cors import CORSMiddleware  # Middleware for handling CORS
@@ -26,7 +26,7 @@ from app.routes.facetagging import router as tagging_router  # Router for face t
 
 # Import custom logging module
 from app.custom_logging import CustomizeLogger  
-
+# this comments are added to ensure code readability
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
