@@ -8,7 +8,7 @@ from app.config.settings import FACES_DATABASE_PATH, IMAGES_DATABASE_PATH
 def get_all_face_embeddings():
     """
     retrives all face embeddings stored in the SQLite database and map them to their corresponding
-    image paths
+    image paths 
 
     Returns:
         np.array: An array of all face embeddings.
