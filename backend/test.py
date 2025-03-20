@@ -3,7 +3,7 @@ import json
 import numpy as np
 from sklearn.cluster import DBSCAN
 from app.config.settings import FACES_DATABASE_PATH, IMAGES_DATABASE_PATH
-
+#import all the necessary files ar required
 
 def get_all_face_embeddings():
     """
