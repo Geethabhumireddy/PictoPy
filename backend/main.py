@@ -45,9 +45,9 @@ async def lifespan(app: FastAPI):
     cleanup_face_embeddings()  # Remove existing face embeddings from the database
     init_face_cluster()  # Initialize the face clustering model
 
-    yield  # Yield control to FastAPI to handle requests
+    yield #yeild control to FAST API
     # and the snext step is
-    # Perform cleanup on application shutdown
+    #perform application clean up and shut down tasks
     face_cluster = get_face_cluster()  # Retrieve the face clustering object
     if face_cluster:
         face_cluster.save_to_db()  # Save the updated face cluster data to the database
@@ -69,9 +69,7 @@ app.add_middleware(
 @app.get("/")
 async def root():
     """
-    Root endpoint of the API.
-    Returns a simple message indicating that the server is running.
-    """
+    Root endpoint for the FastAPI application."""
     return {"message": "PictoPy Server is up and running!"}
 
 
