@@ -3,14 +3,14 @@ import json
 import numpy as np
 from sklearn.cluster import DBSCAN
 from app.config.settings import FACES_DATABASE_PATH, IMAGES_DATABASE_PATH
-#import all the necessary files ar required
+#import all the necessary file requires
 
 def get_all_face_embeddings():
     """
     retrives all face embeddings stored in the SQLite database and map them to their corresponding
     image paths 
 
-    Returns:
+    Returns:r
         np.array: An array of all face embeddings.
         list: A list of image paths corresponding to the embeddings.
         list: A list of image paths skipped due to having more than 10 faces
@@ -58,7 +58,7 @@ def main():
     print("Skipped images:")
     for path in skipped_images:
         print(f"  {path}")
-    #apply DBSCAN clustering usingn cosine similarity
+    # Apply DBSCAN clustering using cosine similarity for grouping similar embeddings
 
     dbscan = DBSCAN(eps=0.3, min_samples=2, metric="cosine")
     cluster_labels = dbscan.fit_predict(embedding_array)
