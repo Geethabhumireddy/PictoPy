@@ -46,7 +46,7 @@ async def lifespan(app: FastAPI):
     init_face_cluster()  # Initialize the face clustering model
 
     yield  # Yield control to FastAPI to handle requests
-
+    # and the snext step is
     # Perform cleanup on application shutdown
     face_cluster = get_face_cluster()  # Retrieve the face clustering object
     if face_cluster:
