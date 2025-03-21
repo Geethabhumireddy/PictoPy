@@ -9,6 +9,9 @@ from fastapi import status
 
 
 def create_albums_table():
+    """
+    creates albums table in the database if it does not already exist
+    """
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
     cursor.execute(
@@ -26,6 +29,9 @@ def create_albums_table():
 
 
 def create_album(album_name, description=None):
+    """
+    creates a new album with the name and an optional descriprion .
+    raises an API error if the album already exist"""
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
 
@@ -46,6 +52,9 @@ def create_album(album_name, description=None):
 
 @album_exists
 def delete_album(album_name):
+    """
+    Deletes te album from the database
+    Requires the album to exist"""
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
     cursor.execute("DELETE FROM albums WHERE album_name = ?", (album_name,))
@@ -55,6 +64,9 @@ def delete_album(album_name):
 
 @album_exists
 def add_photo_to_album(album_name, image_path):
+    """
+    Add photots to hespecified album
+    Validates if te image is existing before adding"""
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
 
@@ -81,6 +93,8 @@ def add_photo_to_album(album_name, image_path):
 
 @album_exists
 def get_album_photos(album_name):
+    """
+    Retrices all the photots in the album"""
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
 
@@ -121,6 +135,9 @@ def remove_photo_from_album(album_name, image_path):
 
 
 def get_all_albums():
+    """
+    Updates the description of an existing album.
+    """
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
 
@@ -141,6 +158,9 @@ def get_all_albums():
 
 @album_exists
 def edit_album_description(album_name, new_description):
+    """
+    Updates the description of an existing album.
+    """
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
 
@@ -153,6 +173,9 @@ def edit_album_description(album_name, new_description):
 
 
 def remove_image_from_all_albums(image_id):
+    """
+    Removes a specific image from all albums in the database.
+    """
     conn = sqlite3.connect(ALBUM_DATABASE_PATH)
     cursor = conn.cursor()
 
