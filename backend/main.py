@@ -75,3 +75,4 @@ if __name__ == "__main__":
     config = Config(app=app, host="0.0.0.0", port=8000, log_config=None)  # Exposes API on port 8000
     server = Server(config)
     server.run()  # Starts the server and listens for incoming API requests
+
